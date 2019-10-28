@@ -5,7 +5,7 @@ import atm.sourses.Nominal;
 public interface CellInterface {
     void put(int count);
     int get(int count);
-    int getCount();
+    Integer getCount();
     Nominal getNominal();
 
 }

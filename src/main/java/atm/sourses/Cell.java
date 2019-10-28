@@ -4,7 +4,6 @@ import atm.mainInterfaces.ATM;
 import atm.mainInterfaces.ATMservice;
 import atm.mainInterfaces.CellInterface;
 import java.util.ArrayList;
-import static atm.sourses.Nominal.*;
 
 
 /**
@@ -27,17 +26,17 @@ public class Cell implements CellInterface, ATMservice, ATM {
     }
 
     public Cell() {
+        this.count = 0;
     }
 
-    //todo Как это писать не в сокращенном виде???
     /**
      * Закладываем в ячейку купюры
      * @return
      */
     @Override
     public void put(int count) {
-        this.count += count;
-        //count++;
+        //this.count += count;//В сокращенном виде
+        this.count = this.count + count;//Не в сокращенном виде
     }
 
     //todo Как это писать не в сокращенном виде???
@@ -56,7 +55,7 @@ public class Cell implements CellInterface, ATMservice, ATM {
      * Показывает остатки купюр в ячейке
      * @return
      */
-    public int getCount() {
+    public Integer getCount() {
         return this.count;
     }
 
@@ -69,9 +68,8 @@ public class Cell implements CellInterface, ATMservice, ATM {
         return this.nominal;
     }
 
-    //todo получить данные о кол-ве купюр по каждому номиналу и вернуть это значение
     /**
-     * Получение баланса ячейки
+     * Получить данные о всех купюрах по каждому номиналу и вернуть это значение
      * @return
      */
     @Override
@@ -86,8 +84,9 @@ public class Cell implements CellInterface, ATMservice, ATM {
 
     @Override
     public void putCash(ArrayList<Nominal> cashList) {
-        cashList.size();
-        cashList.add(0, this.nominal);
-        ArrayList list = new ArrayList();
+        //count = count + cashList.get(0).getValue();
+        for (int i = 0; i < cashList.size(); i++) {
+            put(cashList.get(i).getValue());
+        }
     }
 }

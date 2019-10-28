@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static atm.sourses.Nominal.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CellTests {
@@ -61,10 +62,16 @@ public class CellTests {
         assertEquals(cell.getBalance(), 8800);
     }
 
+    /**
+     * Проверить зачисления на счет.
+     */
     @Test
-    public void test(){
+    public void testPutCash(){
         Cell cell = new Cell();
-        cell.putCash(new ArrayList <Nominal>());
-        //assertEquals(cell.put(1),2);
+        ArrayList<Nominal> nominals = new ArrayList<>();
+        nominals.add(ONE_HUNDRED);
+        nominals.add(ONE_THOUSAND);
+        cell.putCash(nominals);
+        assertEquals(1100, cell.getCount());
     }
 }
