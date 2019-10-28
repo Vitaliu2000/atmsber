@@ -4,6 +4,7 @@ import atm.sourses.Cell;
 import atm.sourses.Nominal;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -62,6 +63,8 @@ public class CellTests {
 
     @Test
     public void test(){
-        //void putCash(ArrayList<Nominal> cashList);
+        Cell cell = new Cell();
+        cell.putCash(new ArrayList <Nominal>());
+        //assertEquals(cell.put(1),2);
     }
 }

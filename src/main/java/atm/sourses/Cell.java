@@ -86,8 +86,8 @@ public class Cell implements CellInterface, ATMservice, ATM {
 
     @Override
     public void putCash(ArrayList<Nominal> cashList) {
-        //cashList.add(0, this.nominal);
-
+        cashList.size();
+        cashList.add(0, this.nominal);
         ArrayList list = new ArrayList();
     }
 }
